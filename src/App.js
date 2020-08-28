@@ -7,6 +7,7 @@ import Clock from "./components/clock/Clock";
 import Navigation from "./components/navigation/Navigation";
 import Contact from "./components/contact/Contact";
 import Notfound from "./components/notfound/Notfound";
+import Jeopardy from "./components/jeopardy/Jeopardy";
 
 class App extends Component {
   render() {
@@ -31,6 +32,8 @@ class App extends Component {
             path="/welcome/:name"
             render={(props) => <Welcome {...props} />}
           />
+
+          <Route path="/jeopardy" component={Jeopardy} />
 
           <BrowserRouter>
             <Route exact path="/404" component={Notfound} />

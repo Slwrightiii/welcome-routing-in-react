@@ -23,6 +23,15 @@ class Jeopardy extends Component {
   componentDidMount() {
     this.getNewQuestion();
   }
+
+  computeAnswer = (answer, correctAns) => {
+    if (answer === correctAns) {
+      this.setState({
+        score: this.state.score + this.state.data.value,
+      });
+    }
+  };
+
   //display the results on the screen
   render() {
     // if (this.state.date.category && this.state.data.category.title) {
@@ -36,15 +45,17 @@ class Jeopardy extends Component {
     }
     return (
       <div>
+        <h2> Category: {this.state.data.category.title}</h2>
         <h2> Question: {this.state.data.question}</h2>
         <br />
         <h2> Value: {this.state.data.value}</h2>
         <br />
-        <h2> Category: {this.state.data.category.title}</h2>
         <h2> User's Score: {this.state.score}</h2>
-        <input id="example" type="text" name="text"></input>
+        <input id="Answer" type="text" name="text"></input>
         <br />
-        <button onClick=""> Answer</button>
+        <button className="button" onClick={() => this.state.data.question}>
+          Answer
+        </button>
       </div>
     );
   }
